@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{35FF74C2-3366-4BE8-A064-C62CF4D4B755}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AdvQueryLang</RootNamespace>
+    <AssemblyName>AdvQueryLang</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ApplicationIcon>..\..\..\Personal\Logotypes\Icons\Converted\icon-1.ico</ApplicationIcon>
+    <NoWin32Manifest>False</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compiler\Application.cs" />
+    <Compile Include="Compiler\Context.cs" />
+    <Compile Include="Compiler\State.cs" />
+    <Compile Include="Compiler\StatePair.cs" />
+    <Compile Include="Compiler\States\Final.cs" />
+    <Compile Include="Compiler\Transition.cs" />
+    <Compile Include="Compiler\Transitions\And.cs" />
+    <Compile Include="Compiler\Transitions\Divide.cs" />
+    <Compile Include="Compiler\Transitions\IfNot.cs" />
+    <Compile Include="Compiler\Transitions\Loop.cs" />
+    <Compile Include="Compiler\Transitions\Minus.cs" />
+    <Compile Include="Compiler\Transitions\Multiply.cs" />
+    <Compile Include="Compiler\Transitions\Not.cs" />
+    <Compile Include="Compiler\Transitions\Or.cs" />
+    <Compile Include="Compiler\Transitions\Plus.cs" />
+    <Compile Include="Compiler\Transitions\RegexMatch.cs" />
+    <Compile Include="Compiler\Transitions\RegexReplace.cs" />
+    <Compile Include="Compiler\Transitions\RegexSplit.cs" />
+    <Compile Include="Compiler\Transitions\RegexSuccess.cs" />
+    <Compile Include="Compiler\Transitions\VariableAssign.cs" />
+    <Compile Include="Compiler\Transitions\CustomValue.cs" />
+    <Compile Include="Compiler\Transitions\Empty.cs" />
+    <Compile Include="Compiler\Transitions\If.cs" />
+    <Compile Include="Compiler\Transitions\ConsoleWrite.cs" />
+    <Compile Include="Compiler\Transitions\NotNull.cs" />
+    <Compile Include="Compiler\Transitions\VariableValue.cs" />
+    <Compile Include="Compiler\Variable.cs" />
+    <Compile Include="Compiler\Variables\VarConst.cs" />
+    <Compile Include="Compiler\Variables\VarNamed.cs" />
+    <Compile Include="Compiler\Variables\VarNull.cs" />
+    <Compile Include="Parser\Node.cs" />
+    <Compile Include="Parser\Nodes\Identifier.cs" />
+    <Compile Include="Parser\Nodes\Literal.cs" />
+    <Compile Include="Parser\Nodes\Logical.cs" />
+    <Compile Include="Parser\Nodes\Numeric.cs" />
+    <Compile Include="Parser\Nodes\Routine.cs" />
+    <Compile Include="Parser\ParsingStream.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Compiler\Variables" />
+    <Folder Include="Compiler\States" />
+    <Folder Include="Compiler\Transitions" />
+    <Folder Include="Compiler" />
+    <Folder Include="Parser" />
+    <Folder Include="Parser\Nodes" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
