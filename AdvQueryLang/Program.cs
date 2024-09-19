@@ -33,7 +33,7 @@ namespace AdvQueryLang
 				
 				if (runs > 10) {
 					Console.WriteLine("Number of runs expired.");
-					Console.WriteLine("Please register the application");
+					Console.WriteLine("Please register the application (visit https://ovg-developers.mystrikingly.com/ for purchase).");
 					
 					Environment.Exit(0);
 				}
@@ -56,38 +56,8 @@ namespace AdvQueryLang
 			return false;
 		}
 		
-		public static bool TryToRegister() {
-			try {
-				Console.WriteLine("This is a trial version, please register with password (please visit https://ovg-developers.mystrikingly.com/ for purchase):");
-				
-				string password = Console.ReadLine().Trim();
-				
-				if (password != null && password.Equals("reunion")) {					
-					RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\OVG-Developers", true);
-					
-					if (key == null) {
-						key = Registry.CurrentUser.CreateSubKey("Software\\OVG-Developers");
-					}
-					
-					key.SetValue("Registered", 1);
-					
-					Console.WriteLine("Regsitered");
-					
-					return true;
-				}
-			} catch (Exception e) {
-				Console.WriteLine(e.Message);
-			}
-			
-			return false;
-		}
-		
 		public static void Main(string[] args)
 		{
-			if (!IsRegistered()) {
-				TryToRegister();
-			}
-			
 			if (!IsRegistered()) {
 				CheckRuns();
 			}
