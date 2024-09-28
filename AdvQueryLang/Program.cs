@@ -9,12 +9,16 @@
 using System;
 using System.IO;
 using System.Text;
+
+#if TRIAL
 using Microsoft.Win32;
+#endif
 
 namespace AdvQueryLang
 {
 	class Program
 	{
+		#if TRIAL
 		public static void CheckRuns() {
 			try {
 				RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\OVG-Developers", true);
@@ -55,12 +59,15 @@ namespace AdvQueryLang
 			
 			return false;
 		}
+		#endif
 		
 		public static void Main(string[] args)
 		{
+			#if TRIAL
 			if (!IsRegistered()) {
 				CheckRuns();
 			}
+			#endif
 			
 			Console.WriteLine("Advanced Query Language");
 			
