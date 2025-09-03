@@ -7,7 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 
-#define TRIAL
+//#define TRIAL
 
 using System;
 using System.IO;
@@ -72,6 +72,8 @@ namespace AdvQueryLang
 			}
 			#endif
 			
+			System.Diagnostics.Process.Start("https://baldar.great-site.net");
+
 			Console.WriteLine("Advanced Query Language");
 			
 			string s = null;
