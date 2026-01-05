@@ -1,2 +1,2 @@
 # AQL
- Advanced Query Language
+ Advanced Query Language (please see the 'Reference' file for description)
